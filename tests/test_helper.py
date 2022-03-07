@@ -261,9 +261,9 @@ class CrispyHelperTests(SimpleTestCase):
         form.helper.layout = Layout(InlineField("checkbox"))
         html = render_crispy_form(form)
         expected_html = """
-                <div id="div_id_checkbox" class="form-check form-check-inline">
-                    <label for="id_checkbox" class="form-check-label requiredField">
-                        <input type="checkbox" name="checkbox" class="checkboxinput form-check-input" required id="id_checkbox">
+                <div id="div_id_checkbox" class="mb-3">
+                    <label for="id_checkbox" class="text-gray-700 text-sm font-bold mb-2">
+                        <input type="checkbox" name="checkbox" class="checkboxinput " required id="id_checkbox">
                         Checkbox
                     </label>
                 </div>
