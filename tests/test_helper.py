@@ -3,7 +3,7 @@ from django.forms.models import formset_factory
 from django.template import Template
 from django.test import SimpleTestCase
 
-from crispy_forms.bootstrap import InlineCheckboxes, InlineRadios
+from crispy_forms.bootstrap import InlineCheckboxes, InlineRadios, InlineField
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import HTML, Column, Div, Field, Fieldset, Hidden, Layout, Row
 from crispy_forms.utils import render_crispy_form
@@ -11,6 +11,7 @@ from crispy_tailwind.layout import Button, Reset, Submit
 
 from .forms import (
     CharFieldForm,
+    CheckboxForm,
     CheckboxMultiple,
     PasswordFieldForm,
     RadioForm,
@@ -226,7 +227,7 @@ class CrispyHelperTests(SimpleTestCase):
             """
         self.assertHTMLEqual(html, expected_html)
 
-    def test_inline_checkbox(self):
+    def test_inline_checkboxes(self):
         form = CheckboxMultiple()
         form.helper = FormHelper()
         form.helper.form_tag = False
@@ -249,6 +250,22 @@ class CrispyHelperTests(SimpleTestCase):
                             </label>
                         </div>
                     </div>
+                </div>
+            """
+        self.assertHTMLEqual(html, expected_html)
+
+    def test_inline_checkbox(self):
+        form = CheckboxForm()
+        form.helper = FormHelper()
+        form.helper.form_tag = False
+        form.helper.layout = Layout(InlineField("checkbox"))
+        html = render_crispy_form(form)
+        expected_html = """
+                <div id="div_id_checkbox" class="form-check form-check-inline">
+                    <label for="id_checkbox" class="form-check-label requiredField">
+                        <input type="checkbox" name="checkbox" class="checkboxinput form-check-input" required id="id_checkbox">
+                        Checkbox
+                    </label>
                 </div>
             """
         self.assertHTMLEqual(html, expected_html)

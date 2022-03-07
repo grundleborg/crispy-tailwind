@@ -57,6 +57,10 @@ class CheckboxMultiple(forms.Form):
     checkbox = forms.ChoiceField(widget=forms.CheckboxSelectMultiple, choices=choices)
 
 
+class CheckboxForm(forms.Form):
+    checkbox = forms.BooleanField(widget=forms.CheckboxInput)
+
+
 class SelectForm(forms.Form):
     tos_accepted = forms.ChoiceField(
         label="terms of service",
