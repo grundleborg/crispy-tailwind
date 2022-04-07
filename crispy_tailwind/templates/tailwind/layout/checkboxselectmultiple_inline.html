@@ -12,4 +12,8 @@
     <div id="div_{{ field.auto_id }}" class="flex flex-row{% if wrapper_class %} {{ wrapper_class }}{% endif %}{% if field.css_classes %} {{ field.css_classes }}{% endif %}">
         {% include 'tailwind/layout/checkboxselectmultiple.html' %}
     </div>
+
+    {% if field.errors %}
+        {% include 'tailwind/layout/help_text_and_errors.html' %}
+    {% endif %}
 {% endif %}
