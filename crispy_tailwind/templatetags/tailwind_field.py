@@ -98,11 +98,11 @@ class CrispyTailwindFieldNode(template.Node):
         "date": base_input,
         "datetime": base_input,
         "time": base_input,
-        "checkbox": "",
+        "checkbox": "border-gray-300 rounded",
         "select": "",
         "nullbooleanselect": "",
         "selectmultiple": "",
-        "checkboxselectmultiple": "",
+        "checkboxselectmultiple": "border-gray-300 rounded",
         "multi": "",
         "splitdatetime": "text-gray-700 bg-white focus:outline border border-gray-300 leading-normal px-4 "
         "appearance-none rounded-lg py-2 focus:outline-none mr-2",
